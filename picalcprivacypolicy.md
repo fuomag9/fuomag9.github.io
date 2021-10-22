@@ -20,7 +20,7 @@ Link to privacy policy of third party service providers used by the app
 *   [AdMob](https://support.google.com/admob/answer/6128543?hl=en)
 *   [Google Analytics for Firebase](https://firebase.google.com/policies/analytics)
 *   [Firebase Crashlytics](https://firebase.google.com/support/privacy/)
-*   [Mopub](https://www.mopub.com/en/legal/privacy)
+*   [Facebook Audience Network](https://www.facebook.com/ads/manage/audience_network/publisher_tos/)
 
 Furthermore, your device manufacturer and model will be collected and stored on Firebase and associated with an unique app install id if you submit a score from whitin the application. This data will be publically available to any user of this app when viewing the scoreboard
 
@@ -61,7 +61,7 @@ These Services do not address anyone under the age of 13. I do not knowingly col
 
 I may update our Privacy Policy from time to time. Thus, you are advised to review this page periodically for any changes. I will notify you of any changes by posting the new Privacy Policy on this page.
 
-This policy is effective as of 2021-08-06
+This policy is effective as of 2021-10-22
 
 **Contact Us**
 
