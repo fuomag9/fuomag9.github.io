@@ -19,8 +19,6 @@ Link to privacy policy of third party service providers used by the app
 *   [Google Play Services](https://www.google.com/policies/privacy/)
 *   [Google Analytics for Firebase](https://firebase.google.com/policies/analytics)
 *   [Firebase Crashlytics](https://firebase.google.com/support/privacy/)
-*   [Facebook](https://www.facebook.com/about/privacy/update/printable)
-*   [Facebook Audience Network](https://www.facebook.com/ads/manage/audience_network/publisher_tos/)
 
 **Log Data**
 
@@ -59,7 +57,7 @@ These Services do not address anyone under the age of 13. I do not knowingly col
 
 I may update our Privacy Policy from time to time. Thus, you are advised to review this page periodically for any changes. I will notify you of any changes by posting the new Privacy Policy on this page.
 
-This policy is effective as of 2021-10-22
+This policy is effective as of 2021-10-28
 
 **Contact Us**
 
