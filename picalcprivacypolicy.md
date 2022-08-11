@@ -10,7 +10,7 @@ The terms used in this Privacy Policy have the same meanings as in our Terms and
 
 **Information Collection and Use**
 
-For a better experience, while using our Service, I may require you to provide us with certain personally identifiable information, including but not limited to Google analytics. The information that I request will be retained on your device and is not collected by me in any way.
+For a better experience, while using our Service, I may require you to provide us with certain personally identifiable information, including but not limited to Email, Name, Google profile picture and device information (such as ram, model, etc). The information that I request will be retained on your device and is not collected by me in any way. When submitting a score in the scoreboard the time that your device took to calculate the necessary digits for submission, your device model and a random identifier will be uploaded on Firebase and made publicily available to anyone that uses the app. These information can be deleted at any time by deleting your account from within the application. 
 
 The app does use third party services that may collect information used to identify you.
 
@@ -20,6 +20,7 @@ Link to privacy policy of third party service providers used by the app
 *   [AdMob](https://support.google.com/admob/answer/6128543?hl=en)
 *   [Google Analytics for Firebase](https://firebase.google.com/policies/analytics)
 *   [Firebase Crashlytics](https://firebase.google.com/support/privacy/)
+*   [Firebase](https://firebase.google.com/support/privacy)
 
 Furthermore, your device manufacturer and model will be collected and stored on Firebase and associated with an unique app install id if you submit a score from whitin the application. This data will be publically available to any user of this app when viewing the scoreboard
 
@@ -60,7 +61,7 @@ These Services do not address anyone under the age of 13. I do not knowingly col
 
 I may update our Privacy Policy from time to time. Thus, you are advised to review this page periodically for any changes. I will notify you of any changes by posting the new Privacy Policy on this page.
 
-This policy is effective as of 2022-01-22
+This policy is effective as of 2022-08-11
 
 **Contact Us**
 
