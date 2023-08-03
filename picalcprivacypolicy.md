@@ -10,11 +10,11 @@ The terms used in this Privacy Policy have the same meanings as in our Terms and
 
 **Information Collection and Use**
 
-For a better experience, while using our Service, I may require you to provide us with certain personally identifiable information, including but not limited to Email, Name, Google profile picture and device information (such as ram, model, etc). The information that I request will be retained on your device and is not collected by me in any way. When submitting a score in the scoreboard the time that your device took to calculate the necessary digits for submission, your device model and a random identifier will be uploaded on Firebase and made publicily available to anyone that uses the app. These information can be deleted at any time by deleting your account from within the application.
+For a better experience, while using our Service, I may require you to provide us with certain personally identifiable information, including but not limited to device information (such as ram, model, etc). The information is anonimized as much as possibile and only used for debugging or crashes investigation. All information is automatically collected by firebase crashalytics
 
 The app does use third party services that may collect information used to identify you.
 
-Link to privacy policy of third party service providers used by the app
+Link to privacy policy of all third party service providers that could be used by the app
 
 *   [Google Play Services](https://www.google.com/policies/privacy/)
 *   [AdMob](https://support.google.com/admob/answer/6128543?hl=en)
@@ -59,7 +59,7 @@ These Services do not address anyone under the age of 13. I do not knowingly col
 
 I may update our Privacy Policy from time to time. Thus, you are advised to review this page periodically for any changes. I will notify you of any changes by posting the new Privacy Policy on this page.
 
-This policy is effective as of 2022-08-11
+This policy is effective as of 2023-08-03
 
 **Contact Us**
 
