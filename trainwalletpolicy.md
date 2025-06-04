@@ -1,1 +1,1 @@
-This application collects and processes only the train travel data that is comunicated by the user for generating the pass. The data is only stored for the time necessary for generating the pass for the user and for nothing else.
+This application collects and processes only the train travel data that is comunicated by the user for generating the pass when creating an apple wallet pass. The data is only stored for the time necessary for generating the pass for the user and for nothing else.
