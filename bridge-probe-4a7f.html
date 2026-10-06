@@ -37,7 +37,19 @@
   var trafficEl = document.getElementById('traffic');
   document.getElementById('origin').textContent = 'origin: ' + window.location.origin;
 
+  var creds = {};
+
   function line(s) { trafficEl.textContent += s + '\n'; }
+
+  function render() {
+    var out = '';
+    for (var k in creds) {
+      if (Object.prototype.hasOwnProperty.call(creds, k)) {
+        out += k + ': ' + creds[k] + '\n';
+      }
+    }
+    credEl.textContent = out || '-';
+  }
 
   document.getElementById('copy').onclick = function () {
     var t = document.createElement('textarea');
@@ -52,18 +64,17 @@
     if (typeof data === 'string') { try { data = JSON.parse(data); } catch (err) {} }
     line('<<< ' + JSON.stringify(data));
     var p = (data && data.payload) || {};
-    var token = (p.actor && p.actor.token) || p.token || null;
     var headers = (p.api && p.api.headers) || {};
-    var auth = headers.Authorization || headers.authorization || null;
-    if (token || auth) {
-      credEl.textContent =
-        (token ? 'actor.token:   ' + token + '\n' : '') +
-        (auth ? 'Authorization: ' + auth + '\n' : '') +
-        (p.actor && p.actor.id ? 'actor.id:      ' + p.actor.id + '\n' : '') +
-        (p.actor && p.actor.drnId ? 'actor.drnId:   ' + p.actor.drnId + '\n' : '') +
-        (p.actor && p.actor.drnMarket ? 'drnMarket:     ' + p.actor.drnMarket + '\n' : '') +
-        (p.api && p.api.host ? 'api host:      ' + p.api.host : '');
+    if (p.actor && p.actor.token) { creds['actor.token'] = p.actor.token; }
+    if (p.token) { creds['refreshed token'] = p.token; }
+    if (headers.Authorization || headers.authorization) {
+      creds['Authorization'] = headers.Authorization || headers.authorization;
     }
+    if (p.actor && p.actor.id) { creds['actor.id'] = p.actor.id; }
+    if (p.actor && p.actor.drnId) { creds['actor.drnId'] = p.actor.drnId; }
+    if (p.actor && p.actor.drnMarket) { creds['actor.drnMarket'] = p.actor.drnMarket; }
+    if (p.api && p.api.host) { creds['api host'] = p.api.host; }
+    render();
     statusEl.textContent = 'received trigger: ' + (data && data.trigger);
   });
 
